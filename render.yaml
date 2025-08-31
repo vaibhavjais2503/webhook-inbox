@@ -3,10 +3,8 @@ services:
     name: webhook-inbox
     env: node
     plan: free
-    buildCommand: "npm install --build-from-source"
-    startCommand: "node server.js"
+    buildCommand: |
+      npm install
+      npm rebuild better-sqlite3 --build-from-source
+    startCommand: npm start
     autoDeploy: true
-    envVars:
-      - key: NODE_VERSION
-        value: 18
-
