@@ -1,0 +1,110 @@
+{
+  "info": {
+    "name": "Webhook Inbox API",
+    "_postman_id": "d1c5d0b2-1a92-4e42-b01a-123456789abc",
+    "description": "Collection for Webhook Inbox & Replay Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "health"]
+        }
+      }
+    },
+    {
+      "name": "Ingest Webhook",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"action\": \"opened\",\n  \"issue\": { \"id\": 123 }\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/events?source=github",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "events"],
+          "query": [
+            {
+              "key": "source",
+              "value": "github"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Events",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/events",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "events"]
+        }
+      }
+    },
+    {
+      "name": "Get Event By ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/events/{{eventId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "events", "{{eventId}}"]
+        }
+      }
+    },
+    {
+      "name": "Replay Event",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"target_url\": \"http://localhost:3000/api/health\",\n  \"hmac_secret\": \"mysecret\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/events/{{eventId}}/replay",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "events", "{{eventId}}", "replay"]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "eventId",
+      "value": "replace-with-your-event-id"
+    }
+  ]
+}
