@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: webhook-inbox
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: "npm install"
+    startCommand: "node server.js"
+    envVars:
+      - key: NODE_VERSION
+        value: 18
