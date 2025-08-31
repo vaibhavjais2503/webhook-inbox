@@ -4,5 +4,8 @@ services:
     env: node
     plan: free
     buildCommand: "npm install"
-    startCommand: "npm start"
+    startCommand: "node server.js"
     autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: 18
