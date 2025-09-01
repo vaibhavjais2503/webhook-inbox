@@ -1,8 +1,8 @@
-echo "services:
+services:
   - type: web
     name: webhook-inbox
     env: node
     plan: free
-    buildCommand: \"npm install\"
-    startCommand: \"npm start\"
-    autoDeploy: true" > render.yaml
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    autoDeploy: true
