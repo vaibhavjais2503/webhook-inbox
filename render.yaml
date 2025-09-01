@@ -1,10 +1,8 @@
-services:
+echo "services:
   - type: web
     name: webhook-inbox
     env: node
     plan: free
-    buildCommand: |
-      npm install
-      npm rebuild better-sqlite3 --build-from-source
-    startCommand: npm start
-    autoDeploy: true
+    buildCommand: \"npm install\"
+    startCommand: \"npm start\"
+    autoDeploy: true" > render.yaml
