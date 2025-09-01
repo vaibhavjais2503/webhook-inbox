@@ -1,31 +1,37 @@
-# Webhook Inbox API
+# 📬 Webhook Inbox API
 
-A lightweight backend service to **capture, inspect, and manage webhooks**.  
-Built with **Node.js, Express, and SQLite** — perfect for testing, debugging, or storing webhook events from external services like GitHub, Stripe, etc.
-
----
-
-## ✨ Features
-- ✅ Capture and store incoming webhooks  
-- ✅ List all stored events with filters  
-- ✅ Retrieve an event by ID  
-- ✅ Preview event payloads (JSON/text)  
-- ✅ Stats endpoint (total count + by source)  
-- ✅ Purge old events by date  
+A simple **Webhook Inbox API** built with **Node.js + Express** that allows you to ingest, store, and query webhook events.  
+Now fully deployed and live on **Render** 🚀.
 
 ---
 
-## 📦 Tech Stack
-- **Node.js** + **Express** → API server  
-- **better-sqlite3** → Fast and simple SQLite wrapper  
-- **UUID** → Unique event IDs  
-- **Postman** → API testing  
+## 🌐 Live Deployment
+You can access the API here:
+
+👉 [https://webhook-inbox.onrender.com](https://webhook-inbox.onrender.com)
+
+### Example Endpoints
+- Health Check → [https://webhook-inbox.onrender.com/api/health](https://webhook-inbox.onrender.com/api/health)  
+- Ping → [https://webhook-inbox.onrender.com/api/ping](https://webhook-inbox.onrender.com/api/ping)  
+- Stats → [https://webhook-inbox.onrender.com/api/stats](https://webhook-inbox.onrender.com/api/stats)  
 
 ---
 
-## 🚀 Getting Started
+## ⚙️ Features
+- ✅ Ingest incoming webhook events  
+- ✅ Store events in JSON (using LowDB)  
+- ✅ List all events or fetch by ID  
+- ✅ Purge old events  
+- ✅ Stats endpoint to check system status  
+- ✅ Deployed on **Render** for public access  
 
-### 1. Clone the repo
+---
+
+## 🛠️ Getting Started (Local Setup)
+
+Follow these steps to run the project locally:
+
+### 1. Clone the repository
 ```bash
-git clone https://github.com/vaibhavjais2503/webhook-inbox.git
+git clone https://github.com/vaibhjais2503/webhook-inbox.git
 cd webhook-inbox
